@@ -3,10 +3,10 @@
 commit-msg:
   commands:
     commitlint:
-      run: npx commitlint --edit # https://commitlint.js.org
+      run: pnpx commitlint --edit # https://commitlint.js.org
 
 pre-commit:
   parallel: true
   commands:
-    lint-staged:
-      run: npm run lint
+    validate:
+      run: pnpm validate

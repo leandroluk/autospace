@@ -1,0 +1,19 @@
+{
+  "name": "@autospace/sample-lib",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "tsc": "tsc --noEmit"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "20.11.5",
+    "gts": "^5.3.0",
+    "typescript": "~5.4.3"
+  }
+}

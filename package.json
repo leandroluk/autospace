@@ -1,0 +1,36 @@
+{
+  "private": true,
+  "name": "autospace",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "format": "prettier \"{apps,packages}/**/*.{ts,tsx,js,json}\" --ignore-path .gitignore",
+    "format:check": "pnpm format --check",
+    "format:write": "pnpm format --write",
+    "tsc": "pnpm --parallel -r run tsc",
+    "lint": "pnpm --parallel -r run lint",
+    "build": "pnpm --parallel -r run build",
+    "validate": "pnpm format:write && pnpm tsc && pnpm lint && pnpm build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@commitlint/cli": "19.3.0",
+    "@commitlint/config-conventional": "19.2.2",
+    "@types/node": "20.11.5",
+    "commitlint": "19.3.0",
+    "cz-conventional-changelog": "3.3.0",
+    "gts": "^5.3.0",
+    "lefthook": "1.6.15",
+    "typescript": "~5.4.3"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "dependencies": {
+    "prettier": "^3.0.0"
+  }
+}
