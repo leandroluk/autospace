@@ -1,0 +1,11 @@
+name: autospace
+networks:
+  autospace:
+    name: autospace
+services:
+  autospace-postgres:
+    extends:
+      file: apps/api/docker-compose.yml
+      service: autospace-postgres
+volumes:
+  autospace-postgres:

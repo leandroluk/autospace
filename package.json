@@ -10,7 +10,9 @@
     "tsc": "pnpm --parallel -r run tsc",
     "lint": "pnpm --parallel -r run lint",
     "build": "pnpm --parallel -r run build",
-    "validate": "pnpm format:write && pnpm tsc && pnpm lint && pnpm build"
+    "validate": "pnpm format:write && pnpm tsc && pnpm lint && pnpm build",
+    "compose": "docker-compose down --remove-orphans && docker-compose up --build --force-recreate",
+    "compose:d": "npm run compose -- -d"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +25,7 @@
     "cz-conventional-changelog": "3.3.0",
     "gts": "^5.3.0",
     "lefthook": "1.6.15",
+    "ts-node": "^10.9.2",
     "typescript": "~5.4.3"
   },
   "commitlint": {

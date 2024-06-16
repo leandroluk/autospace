@@ -1,0 +1,54 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type User {
+  name: String
+  picture: String
+}
+
+type Query {
+  users(distinct: [UserScalarFieldEnum!]): [User!]!
+  user: User!
+}
+
+enum UserScalarFieldEnum {
+  uid
+  createdAt
+  updatedAt
+  name
+  picture
+}
+
+type Mutation {
+  registerWithCredential(registerWithCredentialInput: RegisterWithCredentialInput!): Boolean!
+  registerWithProvider(registerWithProviderInput: RegisterWithProviderInput!): Boolean!
+  updateUser(updateUserInput: UpdateUserInput!): User!
+  removeUser: User!
+}
+
+input RegisterWithCredentialInput {
+  name: String!
+  email: String!
+  password: String!
+  picture: String
+}
+
+input RegisterWithProviderInput {
+  name: String
+  picture: String
+  authProviderType: AuthProviderType!
+  authProviderId: String!
+}
+
+enum AuthProviderType {
+  GOOGLE
+  CREDENTIALS
+}
+
+input UpdateUserInput {
+  name: String
+  picture: String
+  authProviderType: AuthProviderType
+  authProviderId: String
+}

@@ -14,10 +14,15 @@ module.exports = {
   },
   ignorePatterns: ['.eslintrc.js'],
   rules: {
+    // @typescript-eslint
     '@typescript-eslint/interface-name-prefix': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
+    // prettier
+    "prettier/prettier": ["error", {}],
+    // eslint
+    "max-len": ["error", {"code": 120, "ignoreUrls": true}],
   },
   settings: {
     node: {

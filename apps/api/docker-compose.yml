@@ -1,0 +1,23 @@
+name: autospace
+networks:
+  autospace:
+    name: autospace
+services:
+  autospace-postgres:
+    image: postgres
+    hostname: postgres
+    container_name: autospace-postgres
+    ports: ['${POSTGRES_PORT:?}:5432']
+    volumes: ['autospace-postgres:/var/lib/postgresql/data']
+    networks: ['autospace']
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:?}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?}
+      POSTGRES_DB: ${POSTGRES_DB:?}
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres']
+      interval: 10s
+      timeout: 5s
+      start_period: 10s
+volumes:
+  autospace-postgres:

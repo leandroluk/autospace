@@ -1,6 +1,6 @@
 {
-  "editor.formatOnPaste": true,
-  "editor.formatOnSave": true,
+  "editor.formatOnPaste": false,
+  "editor.formatOnSave": false,
   "editor.formatOnType": true,
   "editor.detectIndentation": false,
   "editor.tabSize": 2,
@@ -35,5 +35,16 @@
   "typescript.preferences.importModuleSpecifier": "shortest",
   "typescript.preferences.quoteStyle": "single",
   // css
-  "css.lint.unknownAtRules": "ignore"
+  "css.lint.unknownAtRules": "ignore",
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma"
+  },
+  // files
+  "files.eol": "\n",
+  "files.encoding": "utf8",
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // barrelr
+  "barrelr.lineEnding": "LF",
 }

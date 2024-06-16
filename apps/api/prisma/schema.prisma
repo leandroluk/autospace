@@ -1,0 +1,64 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  uid       String   @id @default(uuid())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
+
+  name    String?
+  picture String?
+
+  Admin        UserAdmin?
+  AuthProvider UserAuthProvider?
+  Credential   UserCredential?
+
+  @@map("user")
+}
+
+model UserAdmin {
+  uid       String   @id @default(uuid())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
+
+  User User @relation(fields: [uid], references: [uid])
+
+  @@map("user_admin")
+}
+
+model UserCredential {
+  uid       String   @id @default(uuid())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
+
+  email        String @unique
+  passwordHash String
+
+  User User @relation(fields: [uid], references: [uid])
+
+  @@map("user_credential")
+}
+
+model UserAuthProvider {
+  uid        String   @id @default(uuid())
+  createdAt  DateTime @default(now()) @map("created_at")
+  updatedAt  DateTime @default(now()) @updatedAt @map("updated_at")
+  providerId String?  @map("provider_id")
+
+  type AuthProviderType
+
+  User User @relation(fields: [uid], references: [uid])
+
+  @@map("user_auth_provider")
+}
+
+enum AuthProviderType {
+  GOOGLE
+  CREDENTIALS
+}
